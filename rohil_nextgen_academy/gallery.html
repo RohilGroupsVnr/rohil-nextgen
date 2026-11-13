@@ -523,27 +523,34 @@
         }
 
         .video-modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-            width: 800px;
-        }
+    position: relative;
+    width: auto;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+}
 
-        .video-modal-video {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
+.video-modal-video {
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 85vh;      /* screen kulla fit aagum */
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+}
 
-        .video-modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
+.video-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 10;
+}
 
         .video-modal-close:hover {
             color: var(--primary-red);
@@ -1274,6 +1281,23 @@
             }
         }
     </style>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2068205667229556');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
     </head>
 
     <body>
@@ -1352,6 +1376,7 @@
                                 class="dropdown-item">Placement Training</a>
                             <a href="companies.html"
                                 class="dropdown-item">Tied-up Companies</a>
+                            <a href="colleges.html" class="dropdown-item">Tied-up Colleges</a> 
                             <a href="placement-success.html"
                                 class="dropdown-item">Placement Success</a>
                         </div>
@@ -1359,10 +1384,10 @@
                     <li class="nav-item">
                         <a href="techblog.html" class="nav-link">Techblog</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="scholarship.html"
                             class="nav-link">Scholarship</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="career.html" class="nav-link"> Careers</a>
                     </li>
@@ -1633,6 +1658,123 @@
                         </div>
                     </div>
 
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g19.jpeg"
+                                alt="Trainer conducting a classroom session"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g20.jpeg"
+                                alt="Trainer conducting a classroom session"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g21.jpeg"
+                                alt="Group Photo Rohil NextGen Trainers"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g22.jpeg"
+                                alt="College students receiving certificates from Rohil NextGen during a certificate distribution ceremony"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g23.jpeg"
+                                alt="College students receiving certificates from Rohil NextGen during a certificate distribution ceremony"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g24.jpeg"
+                                alt="College students receiving certificates from Rohil NextGen during a certificate distribution ceremony"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g25.jpeg"
+                                alt="College students receiving certificates from Rohil NextGen during a certificate distribution ceremony"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g26.jpeg"
+                                alt="College students receiving certificates from Rohil NextGen during a certificate distribution ceremony"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure Images -->
+                    <div class="gallery-item" data-category="infrastructure">
+                        <div class="gallery-img-container">
+                            <img src="./images/g27.jpeg"
+                                alt="College students receiving certificates from Rohil NextGen during a certificate distribution ceremony"
+                                class="gallery-img">
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="workshop">
+                        <div class="video-container">
+                            <video class="gallery-video"
+                                poster="./gallery/v7.png">
+                                <source src="./gallery/v7.mp4"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Generative AI Workshop</h3>
+                                <p class="gallery-description">A Generative AI training session conducted at Rohil NextGen, where students are guided through AI concepts, tools, and practical applications with hands-on demonstrations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="workshop">
+                        <div class="video-container">
+                            <video class="gallery-video"
+                                poster="./gallery/v8.png">
+                                <source src="./gallery/v8.mp4"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Mobile App Development Workshop</h3>
+                                <p class="gallery-description">A Mobile App Development Workshop conducted at Rohil NextGen, offering students practical insights into mobile app development, hands-on demonstrations, and modern application-building techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Student Review Videos -->
                     <div class="gallery-item" data-category="reviews">
                         <div class="video-container">
@@ -1842,6 +1984,29 @@
                                     practical training, real-time projects, and
                                     expert guidance in SEO, social media, and
                                     online branding.
+                                </p>
+                                <span class="gallery-category">Student
+                                    Testimonial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="reviews">
+                        <div class="video-container">
+                            <video class="gallery-video"
+                                poster="./gallery/v6.png">
+                                <source src="./gallery/v6.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Udhay Prakash – Student Feedback</h3>
+                                <p class="gallery-description">
+                                    Udhay Prakash shares his learning journey at Rohil NextGen, highlighting Full Stack Development training experience, technical skill development, and the placement support that helped him take the next step towards his career.
                                 </p>
                                 <span class="gallery-category">Student
                                     Testimonial</span>
