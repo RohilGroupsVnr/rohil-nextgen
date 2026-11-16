@@ -298,7 +298,11 @@
         .carousel-item.active {
             opacity: 1;
         }
-
+/* Show the first slide immediately for faster LCP */
+.carousel-item:first-child.active {
+    opacity: 1;
+    transition: none;
+}
         .carousel-item:nth-child(1) {
             background-image: url('./carosuel/carosuel.webp');
         }
