@@ -2162,7 +2162,28 @@
     height: 170px;
   }
 }
-
+.rn-editor{
+  display:block; width:100%; min-height:260px; resize:vertical;
+  margin:0; padding:22px; border:0; outline:none;
+  background:#2b2b2b; color:#e8e8e8;
+  font:14px/1.75 Consolas,'Courier New',monospace;
+  tab-size:4; box-sizing:border-box; white-space:pre; overflow:auto;
+}
+.rn-editor:focus{ box-shadow:inset 0 0 0 2px rgba(212,4,4,.5) }
+.rn-run{
+  background:var(--primary-red,#d40404); color:#fff; border:0;
+  border-radius:6px; padding:7px 14px; cursor:pointer;
+  font-size:.8rem; font-weight:600; font-family:inherit; flex:none;
+  transition:background .3s;
+}
+.rn-run:hover{ background:var(--dark-red,#a80303) }
+.rn-run:disabled{ opacity:.6; cursor:wait }
+.rn-out{
+  margin:0; min-height:90px; max-height:220px; overflow:auto;
+  padding:14px 22px; background:#1f1f1f; color:#a5e075;
+  font:13px/1.6 Consolas,monospace; white-space:pre-wrap; word-break:break-word;
+}
+.rn-out.err{ color:#ff9b9b }
   </style>
 
 
@@ -3519,17 +3540,21 @@
           <a class="rn-snip-btn" href="contact.html"><i class="fab fa-whatsapp"></i> Book Free Demo Class</a>
         </div>
 
-        <div class="rn-win">
-          <div class="rn-bar">
-            <span class="rn-dot" style="background:#f87171"></span>
-            <span class="rn-dot" style="background:#fbbf24"></span>
-            <span class="rn-dot" style="background:#4ade80"></span>
-            <div class="rn-tabs" role="tablist" aria-label="Course code samples"></div>
-            <button class="rn-copy" type="button">Copy</button>
-          </div>
-          <pre class="rn-code"><code id="rnCode"></code></pre>
-          <div class="rn-out" id="rnOut"></div>
-        </div>
+<div class="rn-win">
+  <div class="rn-bar">
+    <span class="rn-dot" style="background:#f87171"></span>
+    <span class="rn-dot" style="background:#fbbf24"></span>
+    <span class="rn-dot" style="background:#4ade80"></span>
+    <div class="rn-tabs" role="tablist" aria-label="Course code samples"></div>
+    <button class="rn-run" type="button" id="rnRun">▶ Run</button>
+    <button class="rn-copy" type="button">Copy</button>
+  </div>
+
+  <textarea id="rnEditor" class="rn-editor" spellcheck="false"
+            autocomplete="off" autocapitalize="off"></textarea>
+
+  <pre class="rn-out" id="rnOut">Click ▶ Run to see the output</pre>
+</div>
       </div>
     </section>
 
@@ -4946,68 +4971,137 @@
     });
   </script>
 
-  <script>
-    (function () {
-      var data = {
-        "Python": {
-          code: '<span class="c"># Rohil NextGen - Python</span>\n<span class="k">def</span> welcome(name, course):\n    <span class="k">return</span> <span class="s">f"Hii {name}! Welcome to {course}"</span>\n\nstudents = [<span class="s">"Arun"</span>, <span class="s">"Priya"</span>]\n<span class="k">for</span> s <span class="k">in</span> students:\n    <span class="k">print</span>(welcome(s, <span class="s">"Python"</span>))',
-          raw: '# Rohil NextGen - Python\ndef welcome(name, course):\n    return f"Hii {name}! Welcome to {course}"\n\nstudents = ["Prabu", "Priya"]\nfor s in students:\n    print(welcome(s, "Python"))',
-          out: 'Hii Prabu! Welcome to Python | Hii Priya! Welcome to Python'
-        },
-        "Java": {
-          code: '<span class="c">// Rohil NextGen - Java</span>\n<span class="k">public class</span> Welcome {\n    <span class="k">public static void</span> main(String[] args) {\n        String[] students = {<span class="s">"Arun"</span>, <span class="s">"Priya"</span>};\n        <span class="k">for</span> (String s : students) {\n            System.out.println(<span class="s">"Hii "</span> + s + <span class="s">"! Welcome to Java"</span>);\n        }\n    }\n}',
-          raw: '// Rohil NextGen - Java\npublic class Welcome {\n    public static void main(String[] args) {\n        String[] students = {"Arun", "Priya"};\n        for (String s : students) {\n            System.out.println("Hii " + s + "! Welcome to Java");\n        }\n    }\n}',
-          out: 'Hii Prabu! Welcome to Java | Hii Priya! Welcome to Java'
-        },
-        "JavaScript": {
-          code: '<span class="c">// Rohil NextGen - JavaScript</span>\n<span class="k">const</span> students = [<span class="s">"Prabu"</span>, <span class="s">"Priya"</span>];\n\nstudents.forEach((s) => {\n  console.log(<span class="s">`Hii ${s}! Welcome to Web Development`</span>);\n});',
-          raw: '// Rohil NextGen - JavaScript\nconst students = ["Prabu", "Priya"];\n\nstudents.forEach((s) => {\n  console.log(`Hii ${s}! Welcome to Web Development`);\n});',
-          out: 'Hii Prabu! Welcome to Web Development | Hii Priya! Welcome to Web Development'
-        },
-        "Flutter": {
-          code: '<span class="c">// Rohil NextGen - Flutter</span>\n<span class="k">class</span> WelcomeCard <span class="k">extends</span> StatelessWidget {\n  <span class="k">const</span> WelcomeCard({super.key});\n\n  <span class="k">@override</span>\n  Widget build(BuildContext context) {\n    <span class="k">return</span> <span class="k">const</span> Card(\n      child: ListTile(\n        title: Text(<span class="s">"Hii!"</span>),\n        subtitle: Text(<span class="s">"Welcome to Flutter"</span>),\n      ),\n    );\n  }\n}',
-          raw: '// Rohil NextGen - Flutter\nclass WelcomeCard extends StatelessWidget {\n  const WelcomeCard({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Card(\n      child: ListTile(\n        title: Text("Hii!"),\n        subtitle: Text("Welcome to Flutter"),\n      ),\n    );\n  }\n}',
-          out: 'Card: Hii! - Welcome to Flutter'
-        }
-      };
+<script>
+(function () {
+  var starters = {
+    "Python": 'def welcome(name, course):\n    return f"Hii {name}! Welcome to {course}"\n\nstudents = ["Arun", "Priya"]\nfor s in students:\n    print(welcome(s, "Python"))\n',
+    "Java": 'public class Main {\n    public static void main(String[] args) {\n        String[] students = {"Arun", "Priya"};\n        for (String s : students) {\n            System.out.println("Hii " + s + "! Welcome to Java");\n        }\n    }\n}\n',
+    "JavaScript": 'const students = ["Arun", "Priya"];\n\nstudents.forEach((s) => {\n  console.log(`Hii ${s}! Welcome to Web Development`);\n});\n',
+    "Flutter": 'class WelcomeCard extends StatelessWidget {\n  const WelcomeCard({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Card(\n      child: ListTile(\n        title: Text("Hii!"),\n        subtitle: Text("Welcome to Flutter"),\n      ),\n    );\n  }\n}\n'
+  };
 
-      var tabsEl = document.querySelector('.rn-snip .rn-tabs');
-      var codeEl = document.getElementById('rnCode');
-      var outEl = document.getElementById('rnOut');
-      var copyBtn = document.querySelector('.rn-snip .rn-copy');
-      var current = 'Python';
+  var saved = {};
+  var current = "Python";
+  var tabsEl  = document.querySelector(".rn-snip .rn-tabs");
+  var editor  = document.getElementById("rnEditor");
+  var outEl   = document.getElementById("rnOut");
+  var runBtn  = document.getElementById("rnRun");
+  var copyBtn = document.querySelector(".rn-snip .rn-copy");
 
-      function show(lang) {
-        current = lang;
-        codeEl.innerHTML = data[lang].code;
-        outEl.textContent = '> ' + data[lang].out;
-        tabsEl.querySelectorAll('.rn-tab').forEach(function (t) {
-          t.setAttribute('aria-selected', t.dataset.lang === lang);
-        });
+  function setOut(text, isErr) {
+    outEl.textContent = text;
+    outEl.classList.toggle("err", !!isErr);
+  }
+
+  function show(lang) {
+    saved[current] = editor.value;
+    current = lang;
+    editor.value = saved[lang] !== undefined ? saved[lang] : starters[lang];
+    setOut("Click ▶ Run to see the output");
+    tabsEl.querySelectorAll(".rn-tab").forEach(function (t) {
+      t.setAttribute("aria-selected", t.dataset.lang === lang);
+    });
+  }
+
+  Object.keys(starters).forEach(function (lang) {
+    var b = document.createElement("button");
+    b.className = "rn-tab"; b.type = "button";
+    b.setAttribute("role", "tab"); b.dataset.lang = lang;
+    b.textContent = lang;
+    b.addEventListener("click", function () { show(lang); });
+    tabsEl.appendChild(b);
+  });
+
+  editor.addEventListener("keydown", function (e) {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      var s = editor.selectionStart, en = editor.selectionEnd;
+      editor.value = editor.value.slice(0, s) + "    " + editor.value.slice(en);
+      editor.selectionStart = editor.selectionEnd = s + 4;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); run(); }
+  });
+
+  function runJS(code) {
+    var lines = [];
+    var fake = {
+      log: function () {
+        lines.push(Array.prototype.map.call(arguments, function (a) {
+          return typeof a === "object" ? JSON.stringify(a) : String(a);
+        }).join(" "));
       }
+    };
+    fake.error = fake.warn = fake.info = fake.log;
+    try { new Function("console", code)(fake); setOut(lines.join("\n") || "(no output)"); }
+    catch (err) { setOut(lines.join("\n") + (lines.length ? "\n" : "") + err, true); }
+  }
 
-      Object.keys(data).forEach(function (lang) {
-        var b = document.createElement('button');
-        b.className = 'rn-tab';
-        b.type = 'button';
-        b.setAttribute('role', 'tab');
-        b.dataset.lang = lang;
-        b.textContent = lang;
-        b.addEventListener('click', function () { show(lang); });
-        tabsEl.appendChild(b);
-      });
+  var pyReady = null;
+  function loadPy() {
+    if (pyReady) return pyReady;
+    pyReady = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js";
+      s.onload = function () { loadPyodide().then(resolve, reject); };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+    return pyReady;
+  }
+  async function runPy(code) {
+    setOut("Loading Python... (the first run takes a few seconds)");
+    var py = await loadPy();
+    var out = [];
+    py.setStdout({ batched: function (t) { out.push(t); } });
+    py.setStderr({ batched: function (t) { out.push(t); } });
+    try {
+      await py.runPythonAsync(code);
+      setOut(out.join("\n") || "(no output)");
+    } catch (err) {
+      setOut(out.join("\n") + "\n" + String(err.message || err).split("\n").slice(-4).join("\n"), true);
+    }
+  }
 
-      copyBtn.addEventListener('click', function () {
-        if (!navigator.clipboard) return;
-        navigator.clipboard.writeText(data[current].raw).then(function () {
-          copyBtn.textContent = 'Copied';
-          setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1500);
-        });
-      });
+  async function runJava(code) {
+    setOut("Compiling and running...");
+    var res = await fetch("https://ce.judge0.com/submissions?base64_encoded=false&wait=true", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ source_code: code, language_id: 62 })
+    });
+    var d = await res.json();
+    if (d.compile_output) setOut(d.compile_output, true);
+    else if (d.stderr)    setOut((d.stdout || "") + d.stderr, true);
+    else                  setOut(d.stdout || "(no output)");
+  }
 
-      show(current);
-    })();
-  </script>
+  async function run() {
+    runBtn.disabled = true;
+    var code = editor.value;
+    try {
+      if (current === "JavaScript") runJS(code);
+      else if (current === "Python") await runPy(code);
+      else if (current === "Java") await runJava(code);
+      else setOut("Flutter UI cannot run in the browser.\nThis is a sample only. You will build real Flutter apps in class!");
+    } catch (err) {
+      setOut("Error: " + (err.message || err), true);
+    }
+    runBtn.disabled = false;
+  }
+  runBtn.addEventListener("click", run);
+
+  copyBtn.addEventListener("click", function () {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(editor.value).then(function () {
+      copyBtn.textContent = "Copied";
+      setTimeout(function () { copyBtn.textContent = "Copy"; }, 1500);
+    });
+  });
+
+  editor.value = starters[current];
+  show(current);
+})();
+</script>
 
   <script src="/image-optimizer.js" defer></script>
 
