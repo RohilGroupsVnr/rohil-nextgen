@@ -1,0 +1,1683 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Training Course | Linux Administration Certification | Rohil NextGen</title>
+  <meta name="description"
+    content="Learn Linux administration with hands-on training, real-time server practice, certification, and placement support at Rohil NextGen Institute." />
+  <meta name="keywords"
+    content="Linux Training Course, Linux Administration Course, Linux Training Institute, Linux Course in Virudhunagar, Linux Server Training, Linux Certification Course" />
+  <meta name="author" content="Rohil NextGen" />
+  <link rel="icon" type="optimized-images/rohil_nextgen" href="./optimized-images/rohil_nextgen-removebg-preview.webp" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- JSON-LD Schema for Course -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Linux Training Course - Linux Administration Certification",
+    "description": "Learn Linux administration with hands-on training, real-time server practice, certification, and placement support at Rohil NextGen Institute.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Rohil NextGen",
+      "sameAs": "https://www.rohilnextgen.com"
+    },
+    "courseCode": "LINUX-001",
+    "educationalCredentialAwarded": "Linux Administration Certification",
+    "teaches": "Linux system administration, Linux commands, server configuration, shell scripting, system security",
+    "occupationalCredentialAwarded": "Linux System Administrator, DevOps Engineer, Cloud Engineer",
+    "timeRequired": "PT40H",
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "In-Person",
+      "location": {
+        "@type": "Place",
+        "name": "Rohil NextGen, Virudhunagar, Tamil Nadu"
+      },
+      "startDate": "2026-04-15"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need prior Linux knowledge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This course starts with Linux fundamentals and is designed for beginners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will I practice real Linux commands?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Students will practice commands in a real Linux environment with hands-on labs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is certification provided?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. A Linux Training Certificate is provided after course completion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What career opportunities are available after this course?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can become a Linux System Administrator, DevOps Engineer, Cloud Engineer, IT Infrastructure Engineer, or Server Administrator."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary-red: #d40404;
+      --dark-red: #a80303;
+      --light-red: #ffeded;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --dark-gray: #333333;
+      --medium-gray: #666666;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia;
+      line-height: 1.6;
+      color: var(--dark-gray);
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Bar Styles */
+    .top-bar {
+      background-color: var(--primary-red);
+      color: var(--white);
+      padding: 15px 0;
+      font-size: 15px;
+      height: 60px;
+    }
+
+    .top-bar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 20px;
+    }
+
+    .contact-info div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-icons a {
+      color: var(--white);
+      font-size: 25px;
+      transition: opacity 0.3s; text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: var(--dark-gray);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* Navigation Styles - IMPROVED RESPONSIVE */
+    .navbar {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 80px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 100px;
+      width: 120px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-black);
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-red);
+    }
+
+    /* Active state styles */
+    .nav-link.active {
+      color: var(--primary-red);
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-red);
+      border-radius: 2px;
+    }
+
+    .dropdown {
+      position: absolute;
+      background-color: var(--white);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      min-width: 200px;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s;
+      z-index: 100;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: var(--text-grey);
+      border-bottom: 1px solid #eee;
+      transition: all 0.3s;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--light-grey);
+      color: var(--primary-red);
+      padding-left: 25px;
+    }
+
+    /* Active state for dropdown items */
+    .dropdown-item.active {
+      background-color: var(--light-grey);
+      color: var(--primary-red);
+      font-weight: 500;
+      border-left: 3px solid var(--primary-red);
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: var(--text-black);
+      z-index: 1001;
+    }
+
+    /* Mobile Overlay */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Banner Section */
+    .banner {
+      background: url(./optimized-images/linux-essential.webp);
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      min-height: 550px;
+    }
+
+    .banner-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Overview Section */
+    .overview-section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .section-title h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--dark-gray);
+    }
+
+    .section-title p {
+      font-size: 1.2rem;
+      color: var(--medium-gray);
+    }
+
+    .highlight-box {
+      background-color: var(--light-gray);
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-box p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .highlight-box p strong {
+      color: var(--primary-red);
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rating-badge {
+      background-color: var(--primary-red);
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    /* Course Overview Section */
+    .course-overview {
+      padding: 40px 0 60px;
+    }
+
+    .course-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 25px 15px;
+      background-color: var(--light-gray);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary-red);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--dark-gray);
+      font-weight: 500;
+    }
+
+    /* Certification Section */
+    .certification-section {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .certification-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--dark-gray);
+      margin-bottom: 40px;
+    }
+
+    .certification-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .certification-info-box {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 30px 20px;
+      transition: var(--transition);
+    }
+
+    .certification-info-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .certification-icon {
+      font-size: 48px;
+      color: var(--primary-red);
+      margin-bottom: 20px;
+    }
+
+    .certification-subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark-gray);
+      margin-bottom: 10px;
+    }
+
+    .certification-description {
+      font-size: 1rem;
+      color: var(--medium-gray);
+      margin-bottom: 15px;
+    }
+
+    .certification-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark-gray);
+    }
+
+    /* Course Details Section */
+    .course-details-section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .course-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .course-header h2 {
+      font-size: 2.2rem;
+      color: var(--dark-gray);
+      margin-bottom: 15px;
+    }
+
+    .course-subtitle {
+      font-size: 1.2rem;
+      color: var(--medium-gray);
+      font-style: italic;
+    }
+
+    .course-description,
+    .course-goals,
+    .future-scope {
+      margin-bottom: 40px;
+    }
+
+    .course-description h3,
+    .course-goals h3,
+    .future-scope h3 {
+      font-size: 1.5rem;
+      color: var(--primary-red);
+      margin-bottom: 15px;
+    }
+
+    .course-description p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--medium-gray);
+    }
+
+    .course-goals ul,
+    .future-scope ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .course-goals li,
+    .future-scope li {
+      padding: 10px 0;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .course-goals i,
+    .future-scope i {
+      color: var(--primary-red);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    /* Syllabus Section */
+    .syllabus-container {
+      padding: 80px 20px;
+      background: linear-gradient(to right, #f7f7f7, #eaeaea);
+      text-align: center;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .syllabus-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark-gray);
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .syllabus-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .syllabus-item {
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--dark-gray);
+      background: var(--white);
+      padding: 20px 25px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      width: 100%;
+      border-left: 5px solid var(--primary-red);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .syllabus-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(212, 4, 4, 0.1),
+          transparent);
+      transition: var(--transition);
+    }
+
+    .syllabus-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      border-left: 5px solid var(--dark-red);
+    }
+
+    .syllabus-item:hover::before {
+      left: 100%;
+    }
+
+    .syllabus-item i {
+      color: var(--primary-red);
+      font-size: 1.6rem;
+      margin-right: 15px;
+      width: 35px;
+      text-align: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .syllabus-item:hover i {
+      color: var(--dark-red);
+      transform: scale(1.2);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 0;
+      background-color: var(--light-gray);
+    }
+
+    .faq-content {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background-color: var(--light-red);
+    }
+
+    .faq-question h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark-gray);
+      margin: 0;
+    }
+
+    .faq-icon {
+      color: var(--primary-red);
+      font-size: 1.2rem;
+      transition: var(--transition);
+      flex-shrink: 0;
+      margin-left: 15px;
+    }
+
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background-color: var(--light-red);
+    }
+
+    .faq-answer p {
+      padding: 20px 0;
+      color: var(--medium-gray);
+      margin: 0;
+    }
+
+    .faq-item.active .faq-question {
+      background-color: var(--light-red);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 25px;
+    }
+
+    /* Footer */
+    .tech-footer {
+      background-color: var(--medium-gray);
+      color: var(--white);
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--white);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary-red);
+    }
+
+    .footer-column p {
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-red);
+    }
+
+    .footer-links i {
+      font-size: 0.8rem;
+      color: var(--primary-red);
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .footer-bottom p {
+      color: var(--light-red);
+      margin: 0;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-red);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--dark-red);
+    }
+
+    /* ======================================== */
+    /* ENHANCED MOBILE RESPONSIVE STYLES */
+    /* ======================================== */
+
+    /* Tablet Devices (768px - 991px) */
+    @media (max-width: 991px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .section-title h1 {
+        font-size: 2rem;
+      }
+
+      .certification-title {
+        font-size: 1.8rem;
+      }
+
+      .course-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .syllabus-content {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+      }
+
+      .syllabus-title {
+        font-size: 1.8rem;
+      }
+
+      .course-stats {
+        gap: 15px;
+      }
+    }
+
+    /* Mobile Devices (576px - 767px) */
+    @media (max-width: 767px) {
+
+      /* Top Bar */
+      .top-bar {
+        height: auto;
+        padding: 10px 0;
+      }
+
+      .top-bar-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .contact-info {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .contact-info div {
+        font-size: 13px;
+      }
+
+      .social-icons {
+        gap: 15px;
+      }
+
+      .social-icons a {
+        font-size: 20px;
+      }
+
+      /* Navigation */
+      .hamburger {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 280px;
+        height: 100vh;
+        transition: 0.4s ease;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 20px;
+        gap: 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 0;
+        width: 100%;
+      }
+
+      .nav-link {
+        padding: 15px 25px;
+        width: 100%;
+        justify-content: space-between;
+        border-bottom: 1px solid #eee;
+        font-size: 15px;
+      }
+
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        display: none;
+        background-color: var(--light-gray);
+        width: 100%;
+      }
+
+      .dropdown.active {
+        display: block;
+      }
+
+      .dropdown-item {
+        padding: 12px 40px;
+        font-size: 14px;
+      }
+
+      /* Banner */
+      .banner {
+        padding: 60px 0;
+        min-height: 350px;
+      }
+
+      .banner-content h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .banner-content p {
+        font-size: 1rem !important;
+      }
+
+      /* Overview Section */
+      .overview-section {
+        padding: 40px 0;
+      }
+
+      .section-title h1 {
+        font-size: 1.6rem;
+      }
+
+      .section-title p {
+        font-size: 1rem;
+      }
+
+      .highlight-box {
+        padding: 20px;
+      }
+
+      .highlight-box p {
+        font-size: 1rem;
+      }
+
+      /* Course Stats */
+      .course-overview {
+        padding: 30px 0 40px;
+      }
+
+      .course-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .stat {
+        padding: 15px 10px;
+      }
+
+      .stat-value {
+        font-size: 1.8rem;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+      }
+
+      /* Certification Section */
+      .certification-section {
+        padding: 40px 0;
+      }
+
+      .certification-title {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+      }
+
+      .certification-content {
+        gap: 20px;
+      }
+
+      .certification-info-box {
+        padding: 20px 15px;
+      }
+
+      .certification-icon {
+        font-size: 36px;
+      }
+
+      .certification-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .certification-number {
+        font-size: 1.6rem;
+      }
+
+      /* Course Details */
+      .course-details-section {
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      .course-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .course-subtitle {
+        font-size: 1rem;
+      }
+
+      .course-description h3,
+      .course-goals h3,
+      .future-scope h3 {
+        font-size: 1.3rem;
+      }
+
+      .course-description p {
+        font-size: 1rem;
+      }
+
+      .course-goals li,
+      .future-scope li {
+        font-size: 1rem;
+        gap: 8px;
+      }
+
+      /* Syllabus */
+      .syllabus-container {
+        padding: 40px 15px;
+        margin-bottom: 30px;
+      }
+
+      .syllabus-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+      }
+
+      .syllabus-content {
+        gap: 15px;
+      }
+
+      .syllabus-item {
+        padding: 15px 18px;
+        font-size: 0.95rem;
+      }
+
+      .syllabus-item i {
+        font-size: 1.3rem;
+        margin-right: 12px;
+        width: 28px;
+      }
+
+      /* FAQ */
+      .faq-section {
+        padding: 40px 0;
+      }
+
+      .faq-question {
+        padding: 15px 18px;
+      }
+
+      .faq-question h3 {
+        font-size: 0.95rem;
+      }
+
+      .faq-answer p {
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      .tech-footer {
+        padding: 40px 0 20px;
+      }
+
+      .footer-content {
+        gap: 30px;
+      }
+
+      .footer-column h3 {
+        font-size: 1.1rem;
+      }
+
+      .footer-column p,
+      .footer-links a {
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        font-size: 0.8rem;
+      }
+
+      /* Back to Top */
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* Small Mobile Devices (480px and below) */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      .top-bar-container {
+        gap: 8px;
+      }
+
+      .contact-info {
+        gap: 10px;
+      }
+
+      .contact-info div {
+        font-size: 11px;
+      }
+
+      .banner {
+        padding: 40px 0;
+        min-height: 280px;
+      }
+
+      .banner-content h1 {
+        font-size: 1.4rem !important;
+      }
+
+      .banner-content p {
+        font-size: 0.85rem !important;
+      }
+
+      .section-title h1 {
+        font-size: 1.4rem;
+      }
+
+      .course-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 12px 10px;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+      }
+
+      .certification-title {
+        font-size: 1.3rem;
+      }
+
+      .certification-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .course-header h2 {
+        font-size: 1.3rem;
+      }
+
+      .course-description h3,
+      .course-goals h3,
+      .future-scope h3 {
+        font-size: 1.2rem;
+      }
+
+      .syllabus-title {
+        font-size: 1.3rem;
+      }
+
+      .syllabus-item {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+      }
+
+      .syllabus-item i {
+        font-size: 1.1rem;
+        margin-right: 10px;
+        width: 24px;
+      }
+
+      .faq-question {
+        padding: 12px 15px;
+      }
+
+      .faq-question h3 {
+        font-size: 0.85rem;
+      }
+
+      .faq-icon {
+        font-size: 1rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+
+    /* Landscape Mode for Mobile */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .nav-menu {
+        overflow-y: auto;
+        padding: 60px 0 20px;
+      }
+
+      .banner {
+        min-height: 250px;
+        padding: 40px 0;
+      }
+
+      .syllabus-item {
+        padding: 12px 18px;
+      }
+    }
+
+    /* Touch Device Optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+      }
+
+      .nav-item .dropdown.active {
+        display: block;
+      }
+
+      .stat:hover,
+      .certification-info-box:hover,
+      .syllabus-item:hover {
+        transform: none;
+      }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2068205667229556');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo" itemprop="logo">
+        <div class="logo" style="display: flex; align-items: center">
+          <img src="./optimized-images/rohil_nextgen-removebg-preview.webp"
+            alt="Rohil NextGen Software Training Institute Logo - Best IT Training in Virudhunagar" width="120"
+            height="60" />
+        </div>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" class="nav-link">Gallery</a>
+        </li>
+        <li class="nav-item dropdown-parent">
+          <a href="#" class="nav-link dropdown-toggle">Courses <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown">
+            <a href="classic.html" class="dropdown-item active">Classic</a>
+            <a href="professional.html" class="dropdown-item">Professional</a>
+            <a href="expert.html" class="dropdown-item">Expert</a>
+            <a href="internship.html" class="dropdown-item">Internship</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="browsecourse.html" class="nav-link">Browse Courses</a>
+        </li>
+        <li class="nav-item dropdown-parent">
+          <a href="#" class="nav-link dropdown-toggle">Support <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown">
+            <a href="placement.html" class="dropdown-item">Placement Training</a>
+            <a href="companies.html" class="dropdown-item">Tied-up Companies</a>
+            <a href="colleges.html" class="dropdown-item">Tied-up Colleges</a> 
+            <a href="placement-success.html" class="dropdown-item">Placement Success</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="techblog.html" class="nav-link">Techblog</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="scholarship.html" class="nav-link">Scholarship</a>
+        </li> -->
+        <li class="nav-item">
+          <a href="career.html" class="nav-link"> Careers</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+      <div class="hamburger" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with H1 -->
+  <section class="banner">
+    <div class="banner-content">
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="overview-section" id="overview">
+    <div class="container">
+      <div class="overview-container">
+        <div class="overview-content">
+          <div class="section-title">
+            <h1>Linux Training Course Overview</h1>
+            <p>Master the Foundations of Linux: Become a Certified Linux Professional and Open Endless Career
+              Opportunities!</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Rohil NextGen</strong> offers a comprehensive Linux training program covering Linux basics,
+              command-line operations, shell scripting, system administration, and server management. Linux is widely
+              used in web servers, cloud platforms, DevOps environments, and enterprise IT systems.</p>
+          </div>
+          <div class="rating">
+            <span class="rating-badge">BEST INSTITUTE</span>
+            <span>4.9 Ratings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Stats -->
+  <section class="course-overview">
+    <div class="container">
+      <div class="course-stats">
+        <div class="stat">
+          <div class="stat-value">2026</div>
+          <div class="stat-label">Latest Curriculum</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">40</div>
+          <div class="stat-label">Duration (Hours)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">15</div>
+          <div class="stat-label">Theory (Hours)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">25</div>
+          <div class="stat-label">Practical (Hours)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certification Stats -->
+  <section class="certification-section">
+    <div class="container">
+      <h2 class="certification-title">Why Choose Linux Essentials Certification Training?</h2>
+      <div class="certification-content">
+        <div class="certification-info-box"><i class="fas fa-wallet certification-icon"></i>
+          <h4 class="certification-subtitle">Annual Earnings</h4>
+          <p class="certification-description">Estimated Salary</p>
+          <h3 class="certification-number">â‚¹ 5.2 L</h3>
+        </div>
+        <div class="certification-info-box"><i class="fas fa-chart-line certification-icon"></i>
+          <h4 class="certification-subtitle">Career Growth</h4>
+          <p class="certification-description">Growth Rate This Year</p>
+          <h3 class="certification-number">22%</h3>
+        </div>
+        <div class="certification-info-box"><i class="fas fa-briefcase certification-icon"></i>
+          <h4 class="certification-subtitle">Job Demand</h4>
+          <p class="certification-description">Projected by 2026</p>
+          <h3 class="certification-number">4.2 L</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Details -->
+  <section class="course-details-section">
+    <div class="container">
+      <div class="course-header">
+        <h2>Become a Professional Linux Administrator</h2>
+        <p class="course-subtitle">Learn Linux Fundamentals, System Management, Shell Scripting, and Server Setup</p>
+      </div>
+      <div class="course-description">
+        <h3>Introduction to Linux Operating System</h3>
+        <p>Linux is one of the most powerful and widely used operating systems in the IT industry. Essential skill for
+          system administrators, widely used in servers and cloud platforms, strong foundation for DevOps careers, and
+          high demand in IT infrastructure jobs.</p>
+      </div>
+      <div class="course-goals">
+        <h3>Linux Course Curriculum</h3>
+        <ul>
+          <li><i class="fas fa-terminal"></i> Linux Fundamentals - Distributions, Installation, File System Structure
+          </li>
+          <li><i class="fas fa-code"></i> Linux Commands - Basic Commands, File Management, User & Permission Management
+          </li>
+          <li><i class="fas fa-cogs"></i> System Administration - Package Management, Process Management, System
+            Monitoring</li>
+          <li><i class="fas fa-server"></i> Server and Security - Linux Server Configuration, Network Settings, Security
+            Protection</li>
+          <li><i class="fas fa-chalkboard-user"></i> Practical Training - Hands-on Linux Labs, Real-time Server
+            Practice, Project-based Learning</li>
+        </ul>
+      </div>
+      <div class="future-scope">
+        <h3>Career Opportunities After Linux Course</h3>
+        <ul>
+          <li><i class="fas fa-user-shield"></i> Linux System Administrator</li>
+          <li><i class="fas fa-cloud"></i> DevOps Engineer</li>
+          <li><i class="fas fa-cloud-upload-alt"></i> Cloud Engineer</li>
+          <li><i class="fas fa-network-wired"></i> IT Infrastructure Engineer</li>
+          <li><i class="fas fa-server"></i> Server Administrator</li>
+        </ul>
+        <p style="margin-top: 15px;">Linux professionals are in demand across IT companies, cloud service providers, and
+          enterprise infrastructure teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Syllabus Section -->
+  <section class="syllabus-container">
+    <div class="container">
+      <h2 class="syllabus-title">Linux Course Syllabus</h2>
+      <div class="syllabus-content">
+        <div class="syllabus-item"><i class="fas fa-play-circle"></i> Introduction to Linux & Open Source</div>
+        <div class="syllabus-item"><i class="fas fa-terminal"></i> Command-Line Basics and File System Navigation</div>
+        <div class="syllabus-item"><i class="fas fa-user-cog"></i> User and Group Management</div>
+        <div class="syllabus-item"><i class="fas fa-cogs"></i> Process Management and Scheduling</div>
+        <div class="syllabus-item"><i class="fas fa-th-list"></i> Package Installation and Software Management</div>
+        <div class="syllabus-item"><i class="fas fa-file-archive"></i> Linux Permissions and Security</div>
+        <div class="syllabus-item"><i class="fas fa-users"></i> Basic Shell Scripting</div>
+        <div class="syllabus-item"><i class="fas fa-lock"></i> Networking Fundamentals in Linux</div>
+        <div class="syllabus-item"><i class="fas fa-network-wired"></i> Server Setup and Administration</div>
+        <div class="syllabus-item"><i class="fas fa-server"></i> Backup, Recovery and System Maintenance</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>
+          <center> Frequently Asked Questions</center>
+        </h2>
+      </div>
+      <div class="faq-content">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do I need prior Linux knowledge?</h3><span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>No. This course starts with Linux fundamentals and is designed for beginners.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Will I practice real Linux commands?</h3><span class="faq-icon"><i
+                class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. Students will practice commands in a real Linux environment with hands-on labs.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is certification provided?</h3><span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. A Linux Training Certificate is provided after course completion.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What career opportunities are available?</h3><span class="faq-icon"><i
+                class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>You can become a Linux System Administrator, DevOps Engineer, Cloud Engineer, IT Infrastructure Engineer,
+              or Server Administrator.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="tech-footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>About Rohil NextGen Software Training Institute</h3>
+        <p>
+          We are a premier technology education platform in Virudhunagar offering cutting-edge courses in software
+          development, data science, cybersecurity, and IT training with placement support. Get the best software
+          training in Virudhunagar with industry experts.
+        </p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/p/Rohilacademy-61574571321905/" aria-label="Facebook"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/rohil_nextgen/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@rohiltechdigitalteam" aria-label="YouTube"><i
+              class="fab fa-youtube"></i></a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/sofia-deepanraj-37740a3b3/" aria-label="LinkedIn" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <!-- Twitter / X -->
+          <a href="https://x.com/RNextgen86200" aria-label="Twitter" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="classic.html"><i class="fas fa-chevron-right"></i> IT Courses</a></li>
+          <li><a href="browsecourse.html"><i class="fas fa-chevron-right"></i> Browse Courses</a></li>
+          <li><a href="companies.html"><i class="fas fa-chevron-right"></i> Tied-up Companies</a></li>
+          <li><a href="placement-success.html"><i class="fas fa-chevron-right"></i> Placements</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Rohil NextGen</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i>Rohil NextGen, Virudhunagar, Tamil Nadu</a></li>
+          <li><a href="tel:+919751867879"><i class="fas fa-phone"></i>+91 97518 67879</a></li>
+          <li><a href="mailto:admin@rohiltechnologies.com"><i class="fas fa-envelope"></i>
+              admin@rohiltechnologies.com</a></li>
+          <li><a href="#"><i class="fas fa-clock"></i>Mon - Sat: 9:00 AM - 7:00 PM</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="copyright">
+        <p>&copy; 2026 Rohil NextGen - Software Training Institute in Virudhunagar. All Rights Reserved.</p>
+      </div>
+      <div class="footer-bottom-links">
+        <p>Designed By Rohil Technologies</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    hamburger.addEventListener("click", () => navMenu.classList.toggle("active"));
+
+    // Mobile Dropdown
+    document.querySelectorAll(".nav-item").forEach((item) => {
+      const dropdown = item.querySelector(".dropdown");
+      const navLink = item.querySelector(".nav-link");
+      if (dropdown) {
+        navLink.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
+            navLink.classList.toggle("active");
+          }
+        });
+      }
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => backToTop.classList.toggle("show", window.pageYOffset > 300));
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // FAQ Accordion
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item.querySelector(".faq-question").addEventListener("click", () => {
+        document.querySelectorAll(".faq-item").forEach(other => { if (other !== item) other.classList.remove("active"); });
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+  <script src="/image-optimizer.js" defer></script>
+</body>
+
+</html>

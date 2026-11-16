@@ -1374,7 +1374,7 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
         <div class="logo" style="display: flex; align-items: center">
           <img src="./optimized-images/rohil_nextgen-removebg-preview.webp"
             alt="Rohil NextGen Software Training Institute Logo - Best IT Training in Virudhunagar" width="120"
-            height="60" />
+            height="60" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -1535,7 +1535,7 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
       <div class="chat-header">
         <div>
           <img src="./optimized-images/rohil_nextgen-removebg-preview.webp" alt="Chatbot" class="chatbot-image"
-            style="width: 50px; height: 50px" />
+            style="width: 50px; height: 50px" loading="lazy" decoding="async">
           <h3>Course Information</h3>
           <div class="chat-status">
             <div class="status-indicator"></div>
@@ -1889,13 +1889,13 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
 
         studentCard.innerHTML = `
                     <div class="student-avatar">
-                        <img src="${student.avatar}" alt="${student.name}">
+                        <img src="${student.avatar}" alt="${student.name}" loading="lazy" decoding="async">
                     </div>
                     <h3 class="student-name">${student.name}</h3>
                     <div class="student-position">${student.position}</div>
                     <div class="student-company">
                         <div class="company-logo">
-                            <img src="${student.companyLogo}" alt="${student.company}">
+                            <img src="${student.companyLogo}" alt="${student.company}" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <p class="student-testimonial">"${student.testimonial}"</p>
