@@ -300,31 +300,31 @@
         }
 
         .carousel-item:nth-child(1) {
-            background-image: url('./carosuel/carosuel.jpg');
+            background-image: url('./carosuel/carosuel.webp');
         }
 
         .carousel-item:nth-child(2) {
-            background-image: url('./carosuel/carosuel1.jpg');
+            background-image: url('./carosuel/carosuel1.webp');
         }
 
         .carousel-item:nth-child(3) {
-            background-image: url('./carosuel/carosuel2.jpg');
+            background-image: url('./carosuel/carosuel2.webp');
         }
 
         .carousel-item:nth-child(4) {
-            background-image: url("./carosuel/carosuel3.jpg");
+            background-image: url("./carosuel/carosuel3.webp");
         }
 
         .carousel-item:nth-child(5) {
-            background-image: url("./carosuel/carosuel4.jpg");
+            background-image: url("./carosuel/carosuel4.webp");
         }
 
         .carousel-item:nth-child(6) {
-            background-image: url("./carosuel/carosuel5.jpg");
+            background-image: url("./carosuel/carosuel5.webp");
         }
 
         .carousel-item:nth-child(7) {
-            background-image: url("./carosuel/carosuel6.jpg");
+            background-image: url("./carosuel/carosuel6.webp");
         }
 
         .carousel-content {

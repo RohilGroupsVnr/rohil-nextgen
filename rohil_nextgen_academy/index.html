@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+
+<link
+  rel="preload"
+  as="image"
+  href="./carosuel/carosuel.webp"
+  fetchpriority="high"
+/>
   <!-- Google tag (Google Analytics) -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KJV3FQS2"></script>
   <script>
@@ -59,7 +66,8 @@
   <!-- Icons -->
   <link rel="icon" href="https://www.rohilnextgen.com/images/rohil_nextgen-removebg-preview.png" />
   <link rel="apple-touch-icon" href="https://www.rohilnextgen.com/images/rohil_nextgen-removebg-preview.png" />
-
+       <link rel="icon" type="optimized-images/rohil_nextgen"
+            href="./optimized-images/rohil_nextgen-removebg-preview.webp">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -4776,8 +4784,8 @@
       var logos = {
         "UX & AI": "figma/figma-original.svg",
         "Software Testing": "selenium/selenium-original.svg",
-        "Data Science": "./logos/course-logos/data-science.png",
-        "Data Analytics": "./logos/course-logos/data-analytics.png",
+        "Data Science": "./logos/course-logos/data-science.webp",
+        "Data Analytics": "./logos/course-logos/data-analytics.webp",
         "LUA Scripting": "lua/lua-original.svg",
         "Python": "python/python-original.svg",
         "Java": "java/java-original.svg",
@@ -4791,7 +4799,7 @@
         "Kubernetes": "kubernetes/kubernetes-original.svg",
         "AWS": "amazonwebservices/amazonwebservices-original.svg",
         "Azure": "azure/azure-original.svg",
-        "Cybersecurity": "./logos/course-logos/cybersecurity.png",
+        "Cybersecurity": "./logos/course-logos/cybersecurity.webp",
         "Blockchain": "solidity/solidity-original.svg",
         "Flutter": "flutter/flutter-original.svg",
         "Swift": "swift/swift-original.svg",
@@ -4802,7 +4810,7 @@
         "Video Editing": "premierepro/premierepro-original.svg",
         "VLSI Design": "./logos/course-logos/vlsi.png",
         "AutoCAD": "./logos/course-logos/autocad.png",
-        "Digital Marketing": "./logos/course-logos/digital-marketing.png",
+        "Digital Marketing": "./logos/course-logos/digital-marketing.webp",
         "ODOO ERP": "./logos/course-logos/odoo.png"
       };
 
@@ -4994,6 +5002,9 @@
       show(current);
     })();
   </script>
+
+  <script src="/image-optimizer.js" defer></script>
+
 </body>
 </body>
 
