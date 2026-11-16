@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
     />
-    <title>Careers • Rohil NextGen | IT & Software Jobs in Virudhunagar</title>
+    <title>Careers â€¢ Rohil NextGen | IT & Software Jobs in Virudhunagar</title>
     <meta
       name="description"
       content="Current job openings at Rohil NextGen: Business Development Executive, Placement Officer, Pre Sales Officer. Apply now in Virudhunagar."
@@ -33,12 +33,12 @@
     />
     <meta
       property="og:image"
-      content="https://www.rohilnextgen.com/images/rohil_nextgen-removebg-preview.png"
+      content="https://www.rohilnextgen.com/optimized-images/./optimized-images/rohil_nextgen-removebg-preview.webp"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link
       rel="icon"
-      href="https://www.rohilnextgen.com/images/rohil_nextgen-removebg-preview.png"
+      href="https://www.rohilnextgen.com/optimized-images/./optimized-images/rohil_nextgen-removebg-preview.webp"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1358,7 +1358,7 @@
       <div class="nav-container">
         <div class="logo">
           <img
-            src="./images/rohil_nextgen-removebg-preview.png"
+            src="./optimized-images/rohil_nextgen-removebg-preview.webp"
             alt="Rohil NextGen Logo"
           />
         </div>
@@ -2103,16 +2103,16 @@
 
         // Format WhatsApp message
         const message =
-          `📌 *New Job Application - Rohil NextGen*\n\n` +
-          `👤 *Name:* ${name}\n` +
-          `📧 *Email:* ${email}\n` +
-          `📱 *Phone:* ${phone}\n` +
-          `💼 *Position:* ${job}\n` +
-          `🏢 *Company:* Rohil NextGen\n` +
-          `📅 *Applied:* ${new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}\n` +
-          `🕐 *Time:* ${new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}\n\n` +
+          `ðŸ“Œ *New Job Application - Rohil NextGen*\n\n` +
+          `ðŸ‘¤ *Name:* ${name}\n` +
+          `ðŸ“§ *Email:* ${email}\n` +
+          `ðŸ“± *Phone:* ${phone}\n` +
+          `ðŸ’¼ *Position:* ${job}\n` +
+          `ðŸ¢ *Company:* Rohil NextGen\n` +
+          `ðŸ“… *Applied:* ${new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}\n` +
+          `ðŸ• *Time:* ${new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}\n\n` +
           `_This application was submitted via the Rohil NextGen Careers page._\n` +
-          `🔗 *Source:* rohilnextgen.com/career.html`;
+          `ðŸ”— *Source:* rohilnextgen.com/career.html`;
 
         // Encode for URL
         const encodedMessage = encodeURIComponent(message);
@@ -2123,7 +2123,7 @@
         setTimeout(() => {
           window.open(whatsappURL, "_blank");
           showToast(
-            "✅ Application sent successfully via WhatsApp!",
+            "âœ… Application sent successfully via WhatsApp!",
             "success",
           );
           closeApplyForm();
@@ -2175,7 +2175,7 @@
       function getBotResponse(m) {
         const msg = m.toLowerCase();
         if (msg.includes("hi") || msg.includes("hello"))
-          return "Hi there! 👋 Welcome to Rohil NextGen. How can I help you?";
+          return "Hi there! ðŸ‘‹ Welcome to Rohil NextGen. How can I help you?";
         if (msg.includes("courses")) {
           courseList.style.display = "flex";
           return "Here are our trending courses! Click any course to learn more.";
@@ -2187,8 +2187,8 @@
         if (msg.includes("placement") || msg.includes("job"))
           return "We provide 100% placement assistance! Check our Careers page for job openings.";
         if (msg.includes("contact"))
-          return "📞 +91 97518 67879 | 📧 admin@rohiltechnologies.com | 💬 WhatsApp: wa.me/919751867879";
-        if (msg.includes("thank")) return "You're welcome! 😊";
+          return "ðŸ“ž +91 97518 67879 | ðŸ“§ admin@rohiltechnologies.com | ðŸ’¬ WhatsApp: wa.me/919751867879";
+        if (msg.includes("thank")) return "You're welcome! ðŸ˜Š";
         if (msg.includes("apply"))
           return "You can apply for jobs on our Careers page! Click the 'Apply via WhatsApp' button on any job card.";
         return "Type 'courses' to see our programs! Or ask about 'placement', 'contact', or 'apply'.";
@@ -2223,5 +2223,7 @@
         });
       });
     </script>
-  </body>
+  <script src="./image-optimizer.js" defer></script>
+</body>
 </html>
+

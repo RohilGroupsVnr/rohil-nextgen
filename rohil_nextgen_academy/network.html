@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,11 +20,11 @@
     <meta property="og:title" content="Computer Network Course - Rohil NextGen">
     <meta property="og:description"
         content="Professional Computer Networking training with practical knowledge and real-world projects.">
-    <meta property="og:image" content="./images/rohil_nextgen-removebg-preview.png">
+    <meta property="og:image" content="./optimized-images/rohil_nextgen-removebg-preview.webp">
     <meta property="og:type" content="website">
 
     <!-- Favicon (Correct Type) -->
-    <link rel="icon" type="image/png" href="./images/rohil_nextgen-removebg-preview.png">
+    <link rel="icon" type="image/png" href="./optimized-images/rohil_nextgen-removebg-preview.webp">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -239,7 +239,7 @@
 
     /* Banner Section */
     .banner {
-        background-image: url(./images/network.jpg);
+        background-image: url(./optimized-images/network.webp);
         background-size: cover;
         background-position: center;
         color: var(--white);
@@ -1069,6 +1069,61 @@
         transform: scale(1.15);
         color: #ff0000;
     }
+
+    /* 1. டிரெண்டிங் கோர்ஸ் ஐகான்கள் மற்றும் எழுத்துக்களின் அளவைச் சரிசெய்ய */
+.course-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px; /* ஐகான்களுக்கு மட்டும் */
+  font-weight: 700;
+  color: var(--primary-red);
+  width: 100%;
+  height: 100%;
+}
+
+/* LUA, ODOO, K8s போன்ற எழுத்துக்களின் அளவைக் குறைக்க */
+.course-icon:not(:has(i)) {
+  font-size: 24px; 
+  letter-spacing: 1px;
+}
+
+/* மொபைல் திரையில் ஐகான்களின் அளவு */
+@media (max-width: 768px) {
+  .course-icon { font-size: 35px; }
+  .course-icon:not(:has(i)) { font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  .course-icon { font-size: 30px; }
+  .course-icon:not(:has(i)) { font-size: 18px; }
+}
+
+/* 2. "Learn Your Way" மற்றும் பிற தலைப்புகளின் அளவைச் சரிசெய்ய */
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.section-title p {
+  color: #666;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section-title h2 { font-size: 26px; }
+  .section-title p { font-size: 14px; }
+}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -1096,7 +1151,7 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
         <div class="nav-container">
             <div class="logo" itemprop="logo">
                 <div class="logo" style="display: flex; align-items: center">
-                    <img src="./images/rohil_nextgen-removebg-preview.png"
+                    <img src="./optimized-images/rohil_nextgen-removebg-preview.webp"
                         alt="Rohil NextGen Software Training Institute Logo - Best IT Training in Virudhunagar"
                         width="120" height="60" />
                 </div>
@@ -1257,9 +1312,9 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
             <div class="course-header">
                 <h2>Become a Networking Specialist</h2>
                 <p class="course-subtitle">
-                    <span style="font-size: 30px; color: #e2062c; font-weight: bold;">❝</span>
+                    <span style="font-size: 30px; color: #e2062c; font-weight: bold;">â</span>
                     Learn TCP/IP, Network Topologies, Routing, Switching, Security and Real-world Applications <span
-                        style="font-size: 30px; color: #e2062c; font-weight: bold;">❞</span>
+                        style="font-size: 30px; color: #e2062c; font-weight: bold;">âž</span>
                 </p>
             </div>
 
@@ -1273,24 +1328,24 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
             <div class="course-goals">
                 <h3>Computer Networking Course Curriculum</h3>
                 <ul>
-                    <li><i class="fas fa-network-wired"></i> Introduction to Computer Networks – Types of Networks (LAN,
+                    <li><i class="fas fa-network-wired"></i> Introduction to Computer Networks â€“ Types of Networks (LAN,
                         WAN, MAN) & Network Topologies.</li>
 
-                    <li><i class="fas fa-layer-group"></i> OSI Model & TCP/IP Model – Layers, Functions & Protocols.
+                    <li><i class="fas fa-layer-group"></i> OSI Model & TCP/IP Model â€“ Layers, Functions & Protocols.
                     </li>
 
-                    <li><i class="fas fa-server"></i> Networking Devices – Routers, Switches, Hubs, Firewalls & Wireless
+                    <li><i class="fas fa-server"></i> Networking Devices â€“ Routers, Switches, Hubs, Firewalls & Wireless
                         Access Points.</li>
 
-                    <li><i class="fas fa-random"></i> IP Addressing – IPv4, IPv6, Subnetting & CIDR.</li>
+                    <li><i class="fas fa-random"></i> IP Addressing â€“ IPv4, IPv6, Subnetting & CIDR.</li>
 
-                    <li><i class="fas fa-exchange-alt"></i> Routing & Switching Concepts – Static Routing, Dynamic
+                    <li><i class="fas fa-exchange-alt"></i> Routing & Switching Concepts â€“ Static Routing, Dynamic
                         Routing Basics.</li>
 
-                    <li><i class="fas fa-shield-alt"></i> Network Security Fundamentals – Firewall, VPN, Encryption &
+                    <li><i class="fas fa-shield-alt"></i> Network Security Fundamentals â€“ Firewall, VPN, Encryption &
                         Cyber Security Basics.</li>
 
-                    <li><i class="fas fa-tools"></i> Network Troubleshooting – Using Wireshark & Cisco Packet Tracer.
+                    <li><i class="fas fa-tools"></i> Network Troubleshooting â€“ Using Wireshark & Cisco Packet Tracer.
                     </li>
 
                     <li><i class="fas fa-project-diagram"></i> Practical Lab Sessions & Real-Time Network Setup.</li>
@@ -1300,53 +1355,53 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
             <div class="future-scope">
                 <h3>Networking Tools & Technologies</h3>
                 <ul>
-                    <li><i class="fas fa-network-wired"></i> Cisco Packet Tracer – Network simulation and configuration
+                    <li><i class="fas fa-network-wired"></i> Cisco Packet Tracer â€“ Network simulation and configuration
                         practice.</li>
 
-                    <li><i class="fas fa-search"></i> Wireshark – Network traffic analysis and packet monitoring.</li>
+                    <li><i class="fas fa-search"></i> Wireshark â€“ Network traffic analysis and packet monitoring.</li>
 
-                    <li><i class="fas fa-server"></i> Router & Switch Configuration – Cisco IOS basic commands and
+                    <li><i class="fas fa-server"></i> Router & Switch Configuration â€“ Cisco IOS basic commands and
                         setup.</li>
 
-                    <li><i class="fas fa-globe"></i> TCP/IP, DNS, DHCP & HTTP Protocols – Core networking technologies.
+                    <li><i class="fas fa-globe"></i> TCP/IP, DNS, DHCP & HTTP Protocols â€“ Core networking technologies.
                     </li>
 
-                    <li><i class="fas fa-shield-alt"></i> Firewall & VPN Technologies – Network security implementation
+                    <li><i class="fas fa-shield-alt"></i> Firewall & VPN Technologies â€“ Network security implementation
                         basics.</li>
 
-                    <li><i class="fas fa-cloud"></i> Cloud Networking Basics – AWS & Virtual Network concepts.</li>
+                    <li><i class="fas fa-cloud"></i> Cloud Networking Basics â€“ AWS & Virtual Network concepts.</li>
 
-                    <li><i class="fas fa-wifi"></i> Wireless Networking – Access Points & WLAN configuration.</li>
+                    <li><i class="fas fa-wifi"></i> Wireless Networking â€“ Access Points & WLAN configuration.</li>
 
-                    <li><i class="fas fa-terminal"></i> Network Troubleshooting Commands – Ping, Tracert, IPConfig &
+                    <li><i class="fas fa-terminal"></i> Network Troubleshooting Commands â€“ Ping, Tracert, IPConfig &
                         Netstat.</li>
                 </ul>
             </div>
             <div class="future-scope">
                 <h3>Career Opportunities After Networking Course</h3>
                 <ul>
-                    <li><i class="fas fa-network-wired"></i> Network Administrator – Manage and maintain organizational
+                    <li><i class="fas fa-network-wired"></i> Network Administrator â€“ Manage and maintain organizational
                         network infrastructure.</li>
 
-                    <li><i class="fas fa-tools"></i> Network Support Engineer – Troubleshoot and resolve hardware &
+                    <li><i class="fas fa-tools"></i> Network Support Engineer â€“ Troubleshoot and resolve hardware &
                         connectivity issues.</li>
 
-                    <li><i class="fas fa-shield-alt"></i> Cybersecurity Analyst – Protect networks from threats,
+                    <li><i class="fas fa-shield-alt"></i> Cybersecurity Analyst â€“ Protect networks from threats,
                         attacks, and vulnerabilities.</li>
 
-                    <li><i class="fas fa-server"></i> System & Network Engineer – Configure routers, switches, and
+                    <li><i class="fas fa-server"></i> System & Network Engineer â€“ Configure routers, switches, and
                         enterprise systems.</li>
 
-                    <li><i class="fas fa-cloud"></i> Cloud Network Engineer – Work with AWS, Azure, and virtual
+                    <li><i class="fas fa-cloud"></i> Cloud Network Engineer â€“ Work with AWS, Azure, and virtual
                         networking environments.</li>
 
-                    <li><i class="fas fa-wifi"></i> Wireless Network Engineer – Design and manage WLAN infrastructures.
+                    <li><i class="fas fa-wifi"></i> Wireless Network Engineer â€“ Design and manage WLAN infrastructures.
                     </li>
 
-                    <li><i class="fas fa-briefcase"></i> IT Infrastructure Executive – Handle enterprise IT and managed
+                    <li><i class="fas fa-briefcase"></i> IT Infrastructure Executive â€“ Handle enterprise IT and managed
                         service operations.</li>
 
-                    <li><i class="fas fa-graduation-cap"></i> Higher Certification Path – CCNA, CCNP, Network Security &
+                    <li><i class="fas fa-graduation-cap"></i> Higher Certification Path â€“ CCNA, CCNP, Network Security &
                         Cloud Certifications.</li>
                 </ul>
             </div>
@@ -1713,6 +1768,7 @@ src="https://www.facebook.com/tr?id=2068205667229556&ev=PageView&noscript=1"
             });
         });
     </script>
+<script src="./image-optimizer.js" defer></script>
 </body>
 
 </html>

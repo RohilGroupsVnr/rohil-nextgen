@@ -391,7 +391,7 @@
 
         /*Banner*/
         .banner {
-            background-image: url(./images/artificial.jpg);
+            background-image: url(./optimized-images/artificial.jpg);
             background-size: cover;
             background-position: center;
             color: var(--white);
