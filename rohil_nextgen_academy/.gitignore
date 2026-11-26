@@ -1,3 +1,8 @@
 
 seo_audit.py
 seo_report.csv
+
+find_broken.py
+fix_links.py
+final_fixes.py
+sitemap_old.xml
