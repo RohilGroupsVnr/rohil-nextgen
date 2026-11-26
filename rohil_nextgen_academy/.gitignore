@@ -6,3 +6,5 @@ find_broken.py
 fix_links.py
 final_fixes.py
 sitemap_old.xml
+
+add_content.py
