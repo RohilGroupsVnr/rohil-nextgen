@@ -1,1 +1,23 @@
+# Specific redirects (idhu mela)
+/ai-machine-learning-course.html   /ai-ml.html   301
+/llm-development-course            /ai-ml.html   301
+/business-intelligence.html        /powerbi.html   301
+/ux-ai-course                      /uxui.html   301
+/mean-stack-course                 /fullstack-web.html   301
+/java-course                       /java.html   301
+/kotlin.html                       /mobileapp.html   301
+/swift.html                        /mobileapp.html   301
+/docker.html                       /devops.html   301
+/kubernetes.html                   /devops.html   301
+/cyber-security-course-virudhunagar   /cybersecurity.html   301
+/c-cpp-programming-course-virudhunagar.html   /c-cpp.html   301
+/c-cpp.html                        /c-cpp.html   301
+/autocad-expert.html               /expert-autocad.html   301
+/embedded.html                     /embeddedcourses.html   301
+/embedded-expert.html              /expert-embedded.html   301
+/iot.html                          /classic-iot.html   301
+/vlsi.html                         /classic-vlsi.html   301
+/vlsi-expert.html                  /expert-vlsi.html   301
+
+# Catch-all (idhu kadasila)
 /* https://www.rohilnextgen.com/:splat 301!
