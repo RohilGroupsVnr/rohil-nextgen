@@ -1,21 +1,23 @@
 
 from pathlib import Path
-from urllib.parse import urlparse, urljoin, unquote, quote
+from urllib.parse import urlparse, unquote, quote
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 from concurrent.futures import ThreadPoolExecutor
 import re
 import xml.etree.ElementTree as ET
+import shutil
 
 # ---------------- CONFIGURATION ----------------
 
 BASE_URL = "https://www.rohilnextgen.com"
+
 BACKUP_NAMES = {
     "_backup_before_image_loading",
     "_backup_before_webp_update"
 }
 
-# Supports running the script from the project parent or project folder
+# Supports running from project parent or project folder
 ROOT = (
     Path("rohil_nextgen_academy")
     if Path("rohil_nextgen_academy").exists()
@@ -23,7 +25,9 @@ ROOT = (
 )
 
 SITEMAP_PATH = ROOT / "sitemap.xml"
-OUTPUT_PATH = ROOT / "sitemap_corrected.xml"
+
+# Backup of existing sitemap
+BACKUP_PATH = ROOT / "sitemap_backup.xml"
 
 # ------------------------------------------------
 
@@ -45,11 +49,11 @@ def local_html_files():
 def file_to_url(html):
     relative = html.relative_to(ROOT).as_posix()
 
-    # Root index.html should use the homepage URL
+    # Root index.html should use homepage URL
     if relative.lower() == "index.html":
         return BASE_URL + "/"
 
-    # Folder index.html should use the folder URL
+    # Folder index.html should use folder URL
     if relative.lower().endswith("/index.html"):
         relative = relative[:-len("index.html")]
 
@@ -70,11 +74,11 @@ def normalize_url(url):
 
     path = unquote(parsed.path or "/")
 
-    # Treat /index.html and / as the same homepage
+    # Treat /index.html and / as same homepage
     if path.lower() == "/index.html":
         path = "/"
 
-    return BASE_URL + path
+    return BASE_URL + quote(path, safe="/-._~")
 
 
 def url_to_local_file(url):
@@ -120,7 +124,9 @@ def check_http(url):
     try:
         request = Request(
             url,
-            headers={"User-Agent": "RohilNextGen-Sitemap-Audit/1.0"}
+            headers={
+                "User-Agent": "RohilNextGen-Sitemap-Audit/1.0"
+            }
         )
 
         with urlopen(request, timeout=20) as response:
@@ -134,7 +140,7 @@ def check_http(url):
         return {
             "url": url,
             "status": error.code,
-            "final_url": url
+            "final_url": error.geturl()
         }
 
     except (URLError, TimeoutError, OSError) as error:
@@ -153,16 +159,32 @@ print("\n========== IMAGE LOADING AUDIT ==========\n")
 html_files = local_html_files()
 
 for html in html_files:
-    content = html.read_text(encoding="utf-8", errors="ignore")
-    images = re.findall(r"<img\b[^>]*>", content, flags=re.I | re.S)
+    content = html.read_text(
+        encoding="utf-8",
+        errors="ignore"
+    )
+
+    images = re.findall(
+        r"<img\b[^>]*>",
+        content,
+        flags=re.I | re.S
+    )
 
     lazy = sum(
-        bool(re.search(r'\bloading\s*=\s*["\']lazy["\']', x, re.I))
+        bool(re.search(
+            r'\bloading\s*=\s*["\']lazy["\']',
+            x,
+            re.I
+        ))
         for x in images
     )
 
     eager = sum(
-        bool(re.search(r'\bloading\s*=\s*["\']eager["\']', x, re.I))
+        bool(re.search(
+            r'\bloading\s*=\s*["\']eager["\']',
+            x,
+            re.I
+        ))
         for x in images
     )
 
@@ -170,7 +192,8 @@ for html in html_files:
 
     print(
         f"{html.name}: Total={len(images)}, "
-        f"Lazy={lazy}, Eager={eager}, No loading={no_loading}"
+        f"Lazy={lazy}, Eager={eager}, "
+        f"No loading={no_loading}"
     )
 
 
@@ -181,8 +204,12 @@ print("\n========== SITEMAP AUDIT ==========\n")
 existing_urls = read_sitemap()
 
 if not existing_urls:
-    print("No sitemap URLs found. Check sitemap.xml before continuing.")
+    print(
+        "ERROR: No sitemap URLs found. "
+        "Check sitemap.xml before continuing."
+    )
     raise SystemExit(1)
+
 
 # Normalize existing URLs and remove duplicates
 normalized_existing = []
@@ -197,7 +224,8 @@ for url in existing_urls:
 
 existing_set = set(normalized_existing)
 
-# Find all HTML pages in the project
+
+# Find all HTML pages in project
 local_pages = {
     file_to_url(html): html
     for html in html_files
@@ -213,33 +241,51 @@ print("Existing sitemap URLs:", len(existing_set))
 print("Missing URLs:", len(missing_urls))
 print("URLs not found in local project:", len(extra_urls))
 
+
 print("\n--- MISSING HTML URLS ---")
+
 for url in missing_urls:
     print(url)
 
+
 print("\n--- SITEMAP URLS NOT FOUND LOCALLY ---")
+
 for url in extra_urls:
     print(url)
 
 
-# Check HTTP status for every existing and missing URL
+# ---------------- HTTP STATUS CHECK ----------------
+
 urls_to_check = sorted(existing_set | local_set)
 
-print("\nChecking HTTP status for", len(urls_to_check), "URLs...")
+print(
+    "\nChecking HTTP status for",
+    len(urls_to_check),
+    "URLs..."
+)
 
 with ThreadPoolExecutor(max_workers=10) as executor:
-    results = list(executor.map(check_http, urls_to_check))
+    results = list(
+        executor.map(check_http, urls_to_check)
+    )
 
-status_map = {item["url"]: item for item in results}
+status_map = {
+    item["url"]: item
+    for item in results
+}
+
 
 print("\n--- HTTP STATUS RESULTS ---")
 
 for item in results:
-    print(f'{item["status"]}: {item["url"]}')
+    print(
+        f'{item["status"]}: {item["url"]}'
+    )
 
-# Keep only URLs that:
-# 1. Exist as HTML files in the local project
-# 2. Return HTTP 200
+
+# ---------------- VALID URL FILTER ----------------
+
+# Include only local HTML URLs returning HTTP 200
 valid_urls = []
 
 for url in sorted(local_set):
@@ -248,20 +294,31 @@ for url in sorted(local_set):
     if result and result["status"] == 200:
         valid_urls.append(url)
 
-# URLs already in sitemap but not suitable for the corrected sitemap
+
+# Identify invalid URLs currently in sitemap
 invalid_urls = []
 
 for url in sorted(existing_set):
     result = status_map.get(url)
 
     if url not in local_set:
-        invalid_urls.append((url, "No matching local HTML file"))
+        invalid_urls.append(
+            (url, "No matching local HTML file")
+        )
+
     elif not result or result["status"] != 200:
-        status = result["status"] if result else "Not checked"
-        invalid_urls.append((url, f"HTTP {status}"))
+        status = (
+            result["status"]
+            if result
+            else "Not checked"
+        )
+
+        invalid_urls.append(
+            (url, f"HTTP {status}")
+        )
 
 
-# ---------------- GENERATE CORRECTED SITEMAP ----------------
+# ---------------- FINAL REPORT ----------------
 
 print("\n========== FINAL REPORT ==========")
 
@@ -269,34 +326,110 @@ print("Valid HTTP 200 URLs:", len(valid_urls))
 print("Invalid sitemap URLs:", len(invalid_urls))
 
 print("\n--- INVALID URL DETAILS ---")
+
 for url, reason in invalid_urls:
     print(f"{reason}: {url}")
 
+
+# Stop if no valid URLs are found
 if not valid_urls:
-    print("\nNo valid URLs found. Corrected sitemap was NOT generated.")
+    print(
+        "\nNo valid URLs found. "
+        "Existing sitemap.xml was NOT modified."
+    )
+
     raise SystemExit(1)
 
-# Generate a new file. Original sitemap.xml remains untouched.
+
+# ---------------- BACKUP EXISTING SITEMAP ----------------
+
+if not SITEMAP_PATH.exists():
+    print("\nERROR: sitemap.xml does not exist.")
+    raise SystemExit(1)
+
+try:
+    shutil.copy2(
+        SITEMAP_PATH,
+        BACKUP_PATH
+    )
+
+    print("\nBackup created:")
+    print(BACKUP_PATH)
+
+except OSError as error:
+    print("\nBackup failed:", error)
+    print("Existing sitemap.xml was NOT modified.")
+    raise SystemExit(1)
+
+
+# ---------------- UPDATE EXISTING SITEMAP.XML ----------------
+
 urlset = ET.Element(
     "urlset",
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 )
 
 for url in valid_urls:
-    loc = ET.SubElement(urlset, "url")
-    ET.SubElement(loc, "loc").text = url
+    url_element = ET.SubElement(
+        urlset,
+        "url"
+    )
+
+    ET.SubElement(
+        url_element,
+        "loc"
+    ).text = url
+
 
 tree = ET.ElementTree(urlset)
 ET.indent(tree, space="  ")
 
-tree.write(
-    OUTPUT_PATH,
-    encoding="utf-8",
-    xml_declaration=True
-)
 
-print("\nCorrected sitemap generated:")
-print(OUTPUT_PATH)
+# Write to temporary file first, then replace sitemap.xml
+TEMP_PATH = ROOT / "sitemap_temp.xml"
 
-print("\nOriginal sitemap.xml was NOT modified.")
-print("Review sitemap_corrected.xml before replacing the original.")
+try:
+    tree.write(
+        TEMP_PATH,
+        encoding="utf-8",
+        xml_declaration=True
+    )
+
+    # Validate generated XML before replacing original
+    ET.parse(TEMP_PATH)
+
+    TEMP_PATH.replace(SITEMAP_PATH)
+
+    print("\nExisting sitemap.xml updated successfully!")
+
+except (OSError, ET.ParseError) as error:
+    print("\nSitemap update failed:", error)
+
+    if TEMP_PATH.exists():
+        TEMP_PATH.unlink()
+
+    print("Original sitemap.xml was preserved.")
+    raise SystemExit(1)
+
+
+# ---------------- VERIFY UPDATED SITEMAP ----------------
+
+try:
+    ET.parse(SITEMAP_PATH)
+
+    print("\nUpdated sitemap XML validation: PASSED")
+
+except ET.ParseError as error:
+    print("\nUpdated sitemap XML validation failed:", error)
+    raise SystemExit(1)
+
+
+print("\n========== COMPLETED ==========")
+
+print("Final sitemap:", SITEMAP_PATH)
+print("Total URLs added:", len(valid_urls))
+print("Backup file:", BACKUP_PATH)
+
+print("\nOnly sitemap.xml was updated.")
+print("No sitemap_corrected.xml was created.")
+print("No sitemap-index.xml was created.")
